@@ -1,0 +1,10 @@
+<div class="todo">
+  <div>
+    <p>{{ todo.title }}</p>
+    <div class="todo__time">
+      <p>Added:</p>
+      <span>{{ todo.date_added }}</span>
+    </div>
+  </div>
+  <button (click)="onCompleteTodo()">Completed</button>
+</div>

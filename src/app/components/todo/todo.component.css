@@ -1,0 +1,31 @@
+.todo {
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.todo__time {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 10px;
+  margin-top: 5px;
+}
+.todo__time p {
+  font-weight: bold;
+}
+
+.todo button {
+  background-color: var(--primary-green);
+  border: none;
+  border-radius: 3px;
+  padding: 6px 12px;
+  color: white;
+}
+.todo button:hover {
+  cursor: pointer;
+}

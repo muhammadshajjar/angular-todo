@@ -1,0 +1,25 @@
+.input__container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.input__container input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 3px;
+  border: transparent;
+}
+.input__container button {
+  background-color: var(--primary-green);
+  border: none;
+  padding: 0px 30px;
+  border-radius: 3px;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  
+}
+.input__container button:hover{
+    cursor: pointer;
+}
