@@ -11,9 +11,9 @@ import { DatePipe } from '@angular/common';
 })
 export class TodoComponent {
   @Input() todo!: Todo;
-  @Output() completedTodo = new EventEmitter<string>();
+  @Output() onCompletedTodo = new EventEmitter<string>();
 
   onCompleteTodo() {
-    this.completedTodo.emit(this.todo.id);
+    this.onCompletedTodo.emit(this.todo.id);
   }
 }

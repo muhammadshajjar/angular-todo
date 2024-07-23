@@ -13,11 +13,11 @@ import { Todo } from '../todo/todo.model';
 })
 export class InputComponent {
   @Output() todoItem = new EventEmitter<Todo>();
-  enteredTitle = '';
+  enteredTitle = ''; //reset form - helper
 
   onAddTodo(form: NgForm) {
     const todo: Todo = {
-      id: Math.random().toString(),
+      id: crypto.randomUUID(),
       title: this.enteredTitle,
       date_added: new Date().toISOString(),
     };
