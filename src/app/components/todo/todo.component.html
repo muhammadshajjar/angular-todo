@@ -3,7 +3,7 @@
     <p>{{ todo.title }}</p>
     <div class="todo__time">
       <p>Added:</p>
-      <span>{{ todo.date_added }}</span>
+      <span>{{ todo.date_added | date : "shortDate" }}</span>
     </div>
   </div>
   <button (click)="onCompleteTodo()">Completed</button>
