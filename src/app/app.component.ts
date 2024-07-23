@@ -16,9 +16,19 @@ import { Todo } from './components/todo/todo.model';
 export class AppComponent {
   title = 'todo-app';
   todos = TODOS;
+  editTodo!: Todo;
 
+  onGetEditTodo(todo: Todo) {
+    this.editTodo = todo;
+  }
+  
   onGetEnteredTask(todo: Todo) {
-    this.todos.unshift(todo);
+    const index = this.todos.findIndex((t) => t.id === todo.id);
+    if (index !== -1) {
+      this.todos[index] = todo;
+    } else {
+      this.todos.unshift(todo);
+    }
   }
   onGetCompletedTodoID(id: string) {
     this.todos = this.todos.filter((todo) => todo.id !== id);

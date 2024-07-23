@@ -6,5 +6,8 @@
       <span>{{ todo.date_added | date : "shortDate" }}</span>
     </div>
   </div>
-  <button (click)="onCompleteTodo()">Completed</button>
+  <div class="todo__actions">
+    <button (click)="onComplete()">Completed</button>
+    <button (click)="onEdit()">Edit</button>
+  </div>
 </div>

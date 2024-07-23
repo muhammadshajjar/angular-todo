@@ -1,11 +1,15 @@
 <app-header />
 <main>
   <section class="container card">
-    <app-input (todoItem)="onGetEnteredTask($event)" />
+    <app-input
+      (todoItem)="onGetEnteredTask($event)"
+      [todoEditItem]="editTodo"
+    />
     <li *ngFor="let todo of todos; trackBy: trackByItems">
       <app-todo
         [todo]="todo"
-        (onCompletedTodo)="onGetCompletedTodoID($event)" 
+        (onCompletedTodo)="onGetCompletedTodoID($event)"
+        (onEditTodo)="onGetEditTodo($event)"
       ></app-todo>
     </li>
     <p *ngIf="todos.length === 0" class="feedback">No Todo Found!</p>
