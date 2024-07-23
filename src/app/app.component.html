@@ -3,7 +3,11 @@
   <section class="container card">
     <app-input (todoItem)="onGetEnteredTask($event)" />
     <li *ngFor="let todo of todos; trackBy: trackByItems">
-      <app-todo [todo]="todo" (completedTodo)="onGetCompletedTodoID($event)"></app-todo>
+      <app-todo
+        [todo]="todo"
+        (completedTodo)="onGetCompletedTodoID($event)"
+      ></app-todo>
     </li>
+    <p *ngIf="todos.length === 0" class="feedback">No Todo Found!</p>
   </section>
 </main>

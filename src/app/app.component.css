@@ -33,3 +33,9 @@ body {
   padding: 12px;
   border-radius: 4px;
 }
+
+.feedback {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}

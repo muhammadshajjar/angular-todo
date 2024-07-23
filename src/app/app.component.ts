@@ -3,13 +3,13 @@ import { HeaderComponent } from './components/header/header.component';
 import { InputComponent } from './components/input/input.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { TODOS } from './components/todo/dummy-todos';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Todo } from './components/todo/todo.model';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, InputComponent, TodoComponent, NgFor],
+  imports: [HeaderComponent, InputComponent, TodoComponent, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

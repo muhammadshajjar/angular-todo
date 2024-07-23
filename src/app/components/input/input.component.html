@@ -5,5 +5,5 @@
     placeholder="Enter your todo"
     [(ngModel)]="enteredTitle"
   />
-  <button>Add</button>
+  <button [disabled]="!enteredTitle">Add</button>
 </form>
