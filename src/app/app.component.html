@@ -13,6 +13,6 @@
         (onEditTodo)="onGetEditTodo($event)"
       ></app-todo>
     </li>
-    <p *ngIf="todos.length === 0" class="feedback">No Todo Found!</p>
+    <p *ngIf="filteredTodos.length === 0" class="feedback">No Todo Found!</p>
   </section>
 </main>

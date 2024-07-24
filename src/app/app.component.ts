@@ -32,19 +32,21 @@ export class AppComponent {
   }
 
   onGetEnteredTask(todo: Todo) {
-    const index = this.filteredTodos.findIndex((t) => t.id === todo.id);
+    //Handle add edit todo in this function
+    const index = this.todos.findIndex((t) => t.id === todo.id);
     if (index !== -1) {
-      this.filteredTodos[index] = todo;
+      this.todos[index] = todo;
     } else {
-      this.filteredTodos.unshift(todo);
+      this.todos.unshift(todo);
     }
-    this.todos = this.filteredTodos;
+    this.onGetAppliedFilter('all');
   }
   onGetCompletedTodoID(id: string) {
-    this.filteredTodos = this.filteredTodos.map((todo) =>
+    //Handle toggle completed status of todo
+    this.todos = this.todos.map((todo) =>
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
-    this.todos = this.filteredTodos;
+    this.onGetAppliedFilter('all');
   }
 
   onGetAppliedFilter(currentFilter: string) {
@@ -54,7 +56,7 @@ export class AppComponent {
       ));
     } else if (currentFilter === 'completed') {
       return (this.filteredTodos = this.todos.filter((todo) => todo.completed));
-    } else return (this.filteredTodos = this.todos);
+    } else return (this.filteredTodos = [...this.todos]);
   }
 
   trackByItems(index: number, item: Todo): string {
