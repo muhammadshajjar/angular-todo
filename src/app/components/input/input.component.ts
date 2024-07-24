@@ -13,8 +13,6 @@ import { Todo } from '../todo/todo.model';
 
 @Component({
   selector: 'app-input',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './input.component.html',
   styleUrl: './input.component.css',
 })

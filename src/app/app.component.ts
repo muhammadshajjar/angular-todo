@@ -9,15 +9,15 @@ import { FilterComponent } from './components/filter/filter.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    HeaderComponent,
-    InputComponent,
-    TodoComponent,
-    NgFor,
-    NgIf,
-    FilterComponent,
-  ],
+  // standalone: true,
+  // imports: [
+  //   HeaderComponent,
+  //   InputComponent,
+  //   TodoComponent,
+  //   NgFor,
+  //   NgIf,
+  //   FilterComponent,
+  // ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

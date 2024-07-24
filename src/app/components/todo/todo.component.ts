@@ -4,8 +4,6 @@ import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-todo',
-  standalone: true,
-  imports: [DatePipe],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css',
 })
