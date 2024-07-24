@@ -38,12 +38,13 @@ export class InputComponent implements OnChanges {
         id: crypto.randomUUID(),
         title: this.enteredTitle,
         date_added: new Date().toISOString(),
+        completed: false,
       };
     }
-    
+
     this.todoItem.emit(todo);
 
     form.resetForm();
-    this.todoEditItem = { id: '', title: '', date_added: '' };
+    this.todoEditItem = { id: '', title: '', date_added: '', completed: false };
   }
 }

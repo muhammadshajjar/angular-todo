@@ -19,7 +19,7 @@
   font-weight: bold;
 }
 
-.todo__actions{
+.todo__actions {
   display: flex;
   gap: 10px;
 }
@@ -30,6 +30,8 @@
   padding: 6px 12px;
   color: white;
 }
-.todo button:hover {
-  cursor: pointer;
+
+.todo button:disabled {
+  cursor: not-allowed !important;
+  background-color: #afafaf !important;
 }

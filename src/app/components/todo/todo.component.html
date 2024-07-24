@@ -7,7 +7,9 @@
     </div>
   </div>
   <div class="todo__actions">
-    <button (click)="onComplete()">Completed</button>
+    <button  (click)="onComplete()">
+      {{ getTodoStatus() }}
+    </button>
     <button (click)="onEdit()">Edit</button>
   </div>
 </div>

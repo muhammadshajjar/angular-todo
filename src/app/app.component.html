@@ -5,7 +5,8 @@
       (todoItem)="onGetEnteredTask($event)"
       [todoEditItem]="editTodo"
     />
-    <li *ngFor="let todo of todos; trackBy: trackByItems">
+    <app-filter (onFilter)="onGetAppliedFilter($event)" />
+    <li *ngFor="let todo of filteredTodos; trackBy: trackByItems">
       <app-todo
         [todo]="todo"
         (onCompletedTodo)="onGetCompletedTodoID($event)"
