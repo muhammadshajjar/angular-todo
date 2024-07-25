@@ -1,9 +1,12 @@
-<form (ngSubmit)="onAddTodo(form)" #form="ngForm" class="input__container">
+<div class="input__container">
   <input
     type="text"
     name="title"
     placeholder="Enter your todo"
     [(ngModel)]="enteredTitle"
   />
-  <button [disabled]="!enteredTitle">{{ getButtonNameBasedOnStatus() }}</button>
-</form>
+  <button [disabled]="!enteredTitle" (click)="onAddTodo()">
+    {{ todoEditItem?.title ? "Edit" : "Add" }}
+  </button>
+  <button *ngIf="todoEditItem?.title" (click)="onCancelEdit()">Cancel</button>
+</div>

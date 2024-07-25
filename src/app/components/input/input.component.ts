@@ -1,13 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Todo } from '../todo/todo.model';
 
@@ -16,18 +7,20 @@ import { Todo } from '../todo/todo.model';
   templateUrl: './input.component.html',
   styleUrl: './input.component.css',
 })
-export class InputComponent implements OnChanges {
-  @Input() todoEditItem!: Todo;
+export class InputComponent {
+  private _todoEditItem!: Todo | null;
   @Output() todoItem = new EventEmitter<Todo>();
+  @Output() onCancelTodo = new EventEmitter<void>();
   enteredTitle = '';
 
-  getButtonNameBasedOnStatus() {
-    return this.todoEditItem?.title ? 'Edit' : 'Add';
+  @Input('todoEditItem') set todoEditItem(value: Todo | null) {
+    this._todoEditItem = value;
+    this.enteredTitle = value?.title || '';
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    this.enteredTitle = this.todoEditItem?.title;
+  get todoEditItem() {
+    return this._todoEditItem;
   }
-  onAddTodo(form: NgForm) {
+  onAddTodo() {
     let todo: Todo;
     if (this.todoEditItem?.title) {
       todo = { ...this.todoEditItem, title: this.enteredTitle };
@@ -39,10 +32,15 @@ export class InputComponent implements OnChanges {
         completed: false,
       };
     }
-
     this.todoItem.emit(todo);
+    this.resetFields();
+  }
 
-    form.resetForm();
-    this.todoEditItem = { id: '', title: '', date_added: '', completed: false };
+  onCancelEdit() {
+    this.onCancelTodo.emit();
+  }
+  resetFields() {
+    this.enteredTitle = '';
+    this.todoEditItem = null;
   }
 }

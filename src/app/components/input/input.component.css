@@ -20,10 +20,10 @@
   text-transform: uppercase;
   
 }
-.input__container button:hover{
-    cursor: pointer;
+.input__container button:hover {
+  cursor: pointer;
 }
-button:disabled{
+button:disabled {
   cursor: not-allowed !important;
   background-color: #afafaf !important;
 }

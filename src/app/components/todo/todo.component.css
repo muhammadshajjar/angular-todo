@@ -35,3 +35,7 @@
   cursor: not-allowed !important;
   background-color: #afafaf !important;
 }
+
+.completed {
+  text-decoration: line-through;
+}

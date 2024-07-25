@@ -4,15 +4,21 @@
     <app-input
       (todoItem)="onGetEnteredTask($event)"
       [todoEditItem]="editTodo"
+      (onCancelTodo)="onCancelEditTodo()"
     />
-    <app-filter (onFilter)="onGetAppliedFilter($event)" />
-    <li *ngFor="let todo of filteredTodos; trackBy: trackByItems">
+    <app-filter
+      (onFilter)="onGetAppliedFilter($event)"
+      [selectedFilter]="filter"
+    />
+    <ul>
       <app-todo
+        *ngFor="let todo of filteredTodos; trackBy: trackByItems"
         [todo]="todo"
         (onCompletedTodo)="onGetCompletedTodoID($event)"
         (onEditTodo)="onGetEditTodo($event)"
+        [filter]="filter"
       ></app-todo>
-    </li>
-    <p *ngIf="filteredTodos.length === 0" class="feedback">No Todo Found!</p>
+    </ul>
+    <p *ngIf="filteredTodos?.length === 0" class="feedback">No Todo Found!</p>
   </section>
 </main>

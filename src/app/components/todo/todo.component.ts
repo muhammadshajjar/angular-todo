@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from './todo.model';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-todo',
@@ -9,18 +8,10 @@ import { DatePipe } from '@angular/common';
 })
 export class TodoComponent {
   @Input() todo!: Todo;
+  @Input() filter!: string;
   @Output() onCompletedTodo = new EventEmitter<string>();
   @Output() onEditTodo = new EventEmitter<Todo>();
 
-  // isCompleted?: boolean;
-
-  // ngOnInit(): void {
-  //   this.isCompleted = this.todo.completed ? true : false;
-  // }
-
-  getTodoStatus() {
-    return this.todo.completed ? 'Completed' : 'Complete';
-  }
   onComplete() {
     this.onCompletedTodo.emit(this.todo.id);
   }

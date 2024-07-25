@@ -1,15 +1,15 @@
-<div class="todo">
+<li class="todo">
   <div>
-    <p>{{ todo.title }}</p>
-    <div class="todo__time">
+    <p [ngClass]="{ completed: filter === 'completed' }">{{ todo.title }}</p>
+    <div *ngIf="filter !== 'completed'" class="todo__time">
       <p>Added:</p>
       <span>{{ todo.date_added | date : "shortDate" }}</span>
     </div>
   </div>
-  <div class="todo__actions">
-    <button  (click)="onComplete()">
-      {{ getTodoStatus() }}
+  <div *ngIf="filter !== 'completed'" class="todo__actions">
+    <button (click)="onComplete()">
+      {{ todo.completed ? "Completed" : "Complete" }}
     </button>
     <button (click)="onEdit()">Edit</button>
   </div>
-</div>
+</li>

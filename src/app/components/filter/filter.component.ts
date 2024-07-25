@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-filter',
@@ -7,9 +7,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class FilterComponent {
   @Output() onFilter = new EventEmitter();
+  @Input() selectedFilter: string = 'all';
 
-  onChangeFilter(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    this.onFilter.emit(selectElement.value);
+  onChangeFilter() {
+    this.onFilter.emit(this.selectedFilter);
   }
 }
